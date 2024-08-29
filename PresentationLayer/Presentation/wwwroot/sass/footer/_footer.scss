@@ -1,0 +1,108 @@
+// footer css start
+.footer-main-wrapper {
+	float: left;
+	width: $my-width;
+	padding: 100px 0px 0px;
+	background-color: #111;
+	position: relative;
+	z-index: 99;
+	.sb-footer-section {
+		.footer-logo {
+			padding-bottom: 25px;
+		}
+		p{
+			padding-bottom: 20px;
+			color: #ffffffa8;
+		}
+		ul {
+			li {
+				padding-bottom: 15px;
+				a {
+					display: flex;
+					align-items: center;
+					color: #ffffffa8;
+					i {
+						padding-right: 20px;
+					}
+				}
+				
+			}
+		}
+	}
+	h5 {
+		color: $title-color-white;
+		padding-bottom: 20px;
+	}
+	h4 {
+		font-size: $font-size-24;
+		padding-bottom: 25px;
+		color: $title-color-white;
+	}
+	p{
+		color: #ffffffa8;
+	}
+	.links {
+		ul {
+			li {
+				padding-bottom: 15px;
+				a {
+					color:#ffffffa8;
+					i {
+						padding-right: 10px;
+					}
+					&:hover {
+						color: #ffffff;
+					}
+				}
+			}
+		}
+		.input-box{
+			margin-top: 30px;
+			width: 100%;
+				input{
+					width: 100%;
+				    border-radius: 30px;
+				    height: 48px;
+				    line-height: 35px;
+				    padding: 0px 18px;
+				    color: #fff;
+				    border: 1px solid #ffffffa8;
+				    background-color: transparent;
+				}
+				button{
+					background-color: $text-hover-color;
+					color: $title-color-white;
+					border-radius: 30px;
+					border: 1px solid $text-hover-color;
+					padding: 5px 23px;
+				    position: absolute;
+				    top: 5px;
+				    right: 6px;
+				}
+		}
+		.app-btn{
+			display: flex;
+			margin-top: 24px;
+				a{
+					img{
+						width: 100%;
+					}
+				}
+		}
+	}
+	
+	
+		.bottom-footer {
+			background-color: #000;
+			margin-top: 50px;
+			padding: 30px 0px;
+			text-align: center;
+		
+		p {
+			color: #ffffffa8;
+			
+		}
+		
+	}
+}
+

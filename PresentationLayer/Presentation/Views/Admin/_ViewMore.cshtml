@@ -1,0 +1,36 @@
+﻿@model List<Entities.Contact>
+
+            @foreach (var contact in Model)
+            {
+                <div class="col-md-4 col-sm-6 mx-auto">
+                    <div class="box">
+                        <div class="img-box">
+                            <img src="~/css/images/p1.png" alt="">
+                        </div>
+                        <div class="detail-box">
+                            <h5>
+                                @contact.Name
+                            </h5>
+                            <h5>
+                                @contact.Service
+                            </h5>
+                            <h6 class="">
+                                @contact.message
+                            </h6>
+                            <div class="about_section container-fluid">
+                                <form action="deleteTask" method="post">
+                                    <input type="hidden" name="Id" value="@contact.Id" />
+                                    <div class="detail-box pr-md-2" style="color:white ">
+                                        <button href="" class="hero_btn" style="width:70%; height:40px ; background-color:darkcyan ">
+                                            Delete
+                                        </button>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+               
+            }
+
+

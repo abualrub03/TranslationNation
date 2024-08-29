@@ -1,0 +1,87 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 17
+VisualStudioVersion = 17.7.34018.315
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "PresentationLayer", "PresentationLayer", "{4C590FE5-15DC-4680-8A6E-9D60A42D5259}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "RepositoriesLayer", "RepositoriesLayer", "{355773E5-49B1-43BD-A7E6-706EDAD17349}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ServicesLayer", "ServicesLayer", "{B6906E60-CEAD-4851-9D81-D95CAF89C0D4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "DataAccessLayer", "DataAccessLayer", "{F202E4CE-F69F-4827-BAF0-6EBE0B5F509F}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "CoreLayer", "CoreLayer", "{30FF1984-7F76-4CA1-98A4-1DA31FB81DFA}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Core", "CoreLayer\Core.csproj", "{9E451912-2D2F-4BD2-8B2C-02D2CBC1F2BC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TranslationNation.Web", "PresentationLayer\Presentation\TranslationNation.Web.csproj", "{6D312723-F084-486B-A34B-12AF43100EC6}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "RacoonProvider", "RepositoriesLayer\ContactProvider\RacoonProvider.csproj", "{15AE4F6A-5ECB-47AA-A5ED-1985ADD24609}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Interfaces", "ServicesLayer\Interfaces\Interfaces.csproj", "{8CF69A0B-8A90-4341-AA61-0AA725F066AF}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "DataAccess", "DataAccessLayer\DataAccess\DataAccess.csproj", "{78CDB3B8-9201-42AF-8F86-DF0EF40AC31B}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Entities", "DataAccessLayer\Entities\Entities.csproj", "{72AB61FC-379C-4FB8-BE38-7A9F3F977B6F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "ViewModel", "DataAccessLayer\ViewModel\ViewModel.csproj", "{8AB237BF-4868-4E2C-B6C8-C0EB7B71EB40}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "TranslationNation.Api", "PresentationLayer\RacoonCore.Api\TranslationNation.Api.csproj", "{C34D3ADE-4C0B-4926-9A44-24A365AF471C}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{9E451912-2D2F-4BD2-8B2C-02D2CBC1F2BC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E451912-2D2F-4BD2-8B2C-02D2CBC1F2BC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E451912-2D2F-4BD2-8B2C-02D2CBC1F2BC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E451912-2D2F-4BD2-8B2C-02D2CBC1F2BC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6D312723-F084-486B-A34B-12AF43100EC6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6D312723-F084-486B-A34B-12AF43100EC6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6D312723-F084-486B-A34B-12AF43100EC6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6D312723-F084-486B-A34B-12AF43100EC6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{15AE4F6A-5ECB-47AA-A5ED-1985ADD24609}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{15AE4F6A-5ECB-47AA-A5ED-1985ADD24609}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{15AE4F6A-5ECB-47AA-A5ED-1985ADD24609}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{15AE4F6A-5ECB-47AA-A5ED-1985ADD24609}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8CF69A0B-8A90-4341-AA61-0AA725F066AF}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8CF69A0B-8A90-4341-AA61-0AA725F066AF}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8CF69A0B-8A90-4341-AA61-0AA725F066AF}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8CF69A0B-8A90-4341-AA61-0AA725F066AF}.Release|Any CPU.Build.0 = Release|Any CPU
+		{78CDB3B8-9201-42AF-8F86-DF0EF40AC31B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{78CDB3B8-9201-42AF-8F86-DF0EF40AC31B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{78CDB3B8-9201-42AF-8F86-DF0EF40AC31B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{78CDB3B8-9201-42AF-8F86-DF0EF40AC31B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{72AB61FC-379C-4FB8-BE38-7A9F3F977B6F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{72AB61FC-379C-4FB8-BE38-7A9F3F977B6F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{72AB61FC-379C-4FB8-BE38-7A9F3F977B6F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{72AB61FC-379C-4FB8-BE38-7A9F3F977B6F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{8AB237BF-4868-4E2C-B6C8-C0EB7B71EB40}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{8AB237BF-4868-4E2C-B6C8-C0EB7B71EB40}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{8AB237BF-4868-4E2C-B6C8-C0EB7B71EB40}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{8AB237BF-4868-4E2C-B6C8-C0EB7B71EB40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C34D3ADE-4C0B-4926-9A44-24A365AF471C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C34D3ADE-4C0B-4926-9A44-24A365AF471C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C34D3ADE-4C0B-4926-9A44-24A365AF471C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C34D3ADE-4C0B-4926-9A44-24A365AF471C}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{9E451912-2D2F-4BD2-8B2C-02D2CBC1F2BC} = {30FF1984-7F76-4CA1-98A4-1DA31FB81DFA}
+		{6D312723-F084-486B-A34B-12AF43100EC6} = {4C590FE5-15DC-4680-8A6E-9D60A42D5259}
+		{15AE4F6A-5ECB-47AA-A5ED-1985ADD24609} = {355773E5-49B1-43BD-A7E6-706EDAD17349}
+		{8CF69A0B-8A90-4341-AA61-0AA725F066AF} = {B6906E60-CEAD-4851-9D81-D95CAF89C0D4}
+		{78CDB3B8-9201-42AF-8F86-DF0EF40AC31B} = {F202E4CE-F69F-4827-BAF0-6EBE0B5F509F}
+		{72AB61FC-379C-4FB8-BE38-7A9F3F977B6F} = {F202E4CE-F69F-4827-BAF0-6EBE0B5F509F}
+		{8AB237BF-4868-4E2C-B6C8-C0EB7B71EB40} = {F202E4CE-F69F-4827-BAF0-6EBE0B5F509F}
+		{C34D3ADE-4C0B-4926-9A44-24A365AF471C} = {4C590FE5-15DC-4680-8A6E-9D60A42D5259}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {CE87B8DE-BDA5-492F-B627-A6DA549C3359}
+	EndGlobalSection
+EndGlobal

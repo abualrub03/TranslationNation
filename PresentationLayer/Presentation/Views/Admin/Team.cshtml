@@ -1,0 +1,155 @@
+﻿@model List<Entities.Team>
+@{
+    ViewBag.Title = "Team";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+<style>
+    /* Style the image upload container */
+    .image-upload-container {
+        margin: 20px auto;
+        width: 300px;
+        border: 1px solid #ccc;
+        padding: 20px;
+    }
+
+        /* Style the label for the image input */
+        .image-upload-container label {
+            display: block;
+            margin-bottom: 10px;
+        }
+
+        /* Style the image input */
+        .image-upload-container input[type="file"] {
+            width: 100%;
+            padding: 5px;
+            border: 1px solid #ccc;
+        }
+
+</style>
+<div style="background-color:white ">
+    <section class="service_section layout_padding" style="color:black; padding:60px">
+        <div class="container">
+            <div class="heading_container heading_center ">
+                <h2 class="">
+                    Our Team
+                </h2>
+
+            </div>
+            <div class="service_container">
+                <div class="carousel-wrap ">
+                    <div class="service_owl-carousel owl-carousel">
+
+                        @foreach (var tem in Model)
+                        {
+
+                            <div class="item">
+                                <div class="box " style="min-height:300px">
+                                    <div class="img-box">
+                                        <img src="~/css/images/s1.png" alt="" />
+                                    </div>
+                                    <div class="detail-box">
+                                        <h5>
+                                            @tem.Name
+                                        </h5>
+                                        <p>
+                                            @tem.Details
+                                        </p>
+
+
+                                        <form action="deleteService" method="post">
+                                            <input type="hidden" name="Id" value="@tem.Id" />
+                                            <div class="detail-box pr-md-2" style="color:white ">
+                                                <button href="" class="hero_btn" style="width:70%; height:40px ; background-color:darkcyan ">
+                                                    Delete
+                                                </button>
+                                            </div>
+                                        </form>
+
+                                        <form action="editMember" method="post">
+                                            <input type="hidden" name="Id" value="@tem.Id" />
+                                            <div class="detail-box pr-md-2" style="color:white ">
+                                                <button href="" class="hero_btn" style="width:70%; height:40px ; background-color:darkcyan ">
+                                                    Edit
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+
+                        }
+
+
+
+
+
+
+
+                    </div>
+                </div>
+            </div>
+
+
+            <section class="contact_section " style="margin-top:20px">
+                <div class="container-fluid">
+
+                    <div class="row">
+
+                        <div class="col-md-5 mx-auto">
+                            <div class="form_container">
+                                <div class="heading_container heading_center">
+                                    <h2 style="color:black">Adding New Memeber</h2>
+                                </div>
+
+
+
+
+
+                                <form action="addingNewMember" method="post" enctype="multipart/form-data">
+
+                                    <div class="form-row">
+                                        <label for="imageFile">Select image to upload:</label>
+                                        <input type="file" id="imageFile" name="imageFile">
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col">
+                                            <input type="text" name="Name" class="form-control" placeholder="Member Name" required />
+                                        </div>
+                                    </div>
+
+                                    <div class="form-row">
+                                        <div class="form-group col">
+                                            <input type="text" name="Details" class="message-box form-control" placeholder="Details" required />
+                                        </div>
+                                    </div>
+
+                                    <div class="btn_box">
+                                        <button>
+                                            Add Member
+                                        </button>
+                                    </div>
+                                </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+
+        </div>
+    </section>
+</div>

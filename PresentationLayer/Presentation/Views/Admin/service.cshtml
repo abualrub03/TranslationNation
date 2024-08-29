@@ -1,0 +1,63 @@
+﻿@model Entities.Service
+@{
+    ViewBag.Title = "service";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+
+    
+   
+}
+
+<section class="contact_section " style="margin-top:20px">
+
+
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <div class="col-md-5 mx-auto">
+                <div class="form_container">
+                    <div class="heading_container heading_center">
+                        <h2 style="color:black">Adding New Service</h2>
+                    </div>
+                    <form action="updateService" method="post">
+                     
+                        <input type="hidden" name="Id" class="form-control" value="@Model.Id" placeholder="Service Name" required />
+
+                        <div class="form-row">
+                            <div class="form-group col">
+                                <input type="text" name="Name" class="form-control" value="@Model.Name" placeholder="Service Name" required />
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col">
+                                <input type="text" name="Details" value="@Model.Details" class="message-box form-control" placeholder="Details" required />
+                            </div>
+                        </div>
+                        <div class="btn_box">
+                            <button>
+                                Update Service
+                            </button>
+
+                         
+
+                        </div>
+                    </form>
+                    
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

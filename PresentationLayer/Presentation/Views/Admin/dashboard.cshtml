@@ -1,0 +1,236 @@
+﻿@model ViewModel.AdminViewModels.ViewMoreViewModel
+@{
+    if ( Model.Searchstr == null)
+    {
+        Model.Searchstr = "";
+    }
+    if(Model.Filter == null)
+    {
+        Model.Filter = "";
+    }
+    ViewBag.Title = "dashboard";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+}
+@section scripts{
+    <script type="text/javascript">
+        var countpages;
+        const clearButton = document.getElementById('clear');
+        clearButton.addEventListener('click', () => {
+            location.reload();
+        });
+        ///////////////////////////////////////////
+        var str = '@Model.Searchstr.ToString()';
+        var strfilter = '@Model.Filter.ToString()'
+        let pressCount = 0;
+        if (pressCount == @Model.countPages) {
+            document.getElementById('loadDataButton').remove();
+        }
+        document.getElementById('loadDataButton').addEventListener('click', () => {
+            loadData();
+            pressCount++;
+            if (pressCount == @Model.countPages - 1) {
+                document.getElementById('loadDataButton').remove();
+            }
+        });
+        function loadData() {
+            const xhr = new XMLHttpRequest();
+
+            xhr.open('GET', '/Admin/LoadPartialView?SearchStr=' + str + '&filter=' + strfilter + '&Section=' + ((pressCount + 1) * 10));
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send();
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    const partialViewHTML = xhr.responseText;
+
+                    updateView(partialViewHTML);
+                } else {
+                    console.error('Error loading partial view:', xhr.statusText);
+                }
+            };
+        }
+        function updateView(partialViewHTML) {
+            const partialViewContainer = document.getElementById('partialViewContainer');
+            partialViewContainer.insertAdjacentHTML('beforeend', partialViewHTML);
+        }
+        //////////////////////////////////////////////
+        document.getElementById('SearchId').addEventListener('click', () => {
+            pressCount = 0;
+            if (pressCount == @Model.countPages) {
+                document.getElementById('loadDataButton').remove();
+            }
+            loadData2();
+            pressCount++;
+            if (pressCount == @Model.countPages - 1) {
+                document.getElementById('loadDataButton').remove();
+            }
+        });
+        function loadData2() {
+            xhr = new XMLHttpRequest();
+            xhr.open('GET', '/Admin/LoadPartialView?SearchStr=' + document.getElementById('SearchString').value + '&filter=' + document.getElementById('Service').value + '&Section=' + (0));
+            xhr.setRequestHeader('Content-Type', 'application/json');
+            xhr.send();
+            xhr.onload = function () {
+                if (xhr.status === 200) {
+                    const partialViewHTML = xhr.responseText;
+
+                    xhr = new XMLHttpRequest();
+                    xhr.open('GET', '/Admin/CountPage?SearchStr=' + document.getElementById('SearchString').value + '&filter=' + document.getElementById('Service').value);
+                    xhr.setRequestHeader('Content-Type', 'application/json');
+                    xhr.send();
+                    xhr.onload = function () {
+                        if (xhr.status === 200) {
+                            countpages = xhr.responseText;
+                            if (countpages > 10) {
+                                if (countpages % 10 == 0) {
+                                    countpages = countpages / 10;
+                                }
+                                else {
+                                    countpages = countpages / 10 + 1;
+                                }
+                            }
+                            else {
+                                countpages = 0;
+                            }
+                            console.log(countpages);
+
+                            if (countpages == 0 ) {
+                                document.getElementById('loadDataButton').remove();
+                            }
+
+                            
+                        } else {
+                            console.error('Error loading partial view:', xhr.statusText);
+                        }
+                    };
+
+                    updateView2(partialViewHTML);
+                } else {
+                    console.error('Error loading partial view:', xhr.statusText);
+                }
+            };
+        }
+        function updateView2(partialViewHTML) {
+            const partialViewContainer = document.getElementById('partialViewContainer');
+            partialViewContainer.innerHTML = partialViewHTML;
+        }
+        //////////////////////////////////////////////////////////////
+        const textbox = document.getElementById('SearchString');
+        textbox.addEventListener('keyup', (event) => {
+            pressCount = 0;
+            if (pressCount == @Model.countPages) {
+                document.getElementById('loadDataButton').remove();
+            }
+            loadData2();
+            pressCount++;
+            if (pressCount == @Model.countPages - 1) {
+                document.getElementById('loadDataButton').remove();
+            }
+        });
+        //////////////////////////////////////////////////////////////
+        const selectElement = document.getElementById('Service');
+        selectElement.addEventListener('select', (event) => {
+            console.log("test111111111");
+            pressCount = 0;
+          
+            console.log("test222222222");
+
+            loadData2();
+            pressCount++;
+            if (pressCount == @Model.countPages - 1) {
+                document.getElementById('loadDataButton').remove();
+            }
+            console.log("test333333333333");
+
+        });
+
+    </script>
+}
+<section  class="team_section layout_padding_dashboard " style="margin-bottom: 120px; background-color:white ; padding-top:40px ; ">
+    <div class="container">
+        <div class="heading_container heading_center">
+            <h2 style="color:#000000">
+                Tasks and contact requests
+            </h2>
+        </div>
+        <!--Start Search Area-->
+        <div style="margin-top: 2%">
+            <div>
+                <div class="form-row">
+                    <div class="form-group col">
+                        <input type="text" name="SearchString" id="SearchString" class="form-control" placeholder="Search" />
+                    </div>
+                </div>
+                <div class="mx-auto" style="width:50%">
+                    <div class="form_container">
+                        <div class="form-row">
+
+                            <div class="form-group col-lg-6 " style="width:100%;padding:0.6%;  position:center; margin: 0 auto;display: flex;align-items: center;justify-content: center; margin-bottom:15px ">
+
+                                <select name="Service" id="Service" class="form-control wide" >
+                                    <option value="null">Select Service</option>
+                                    @foreach (var op in Model.Services)
+                                    {
+                                        <option value="@op.Name">@op.Name</option>
+                                    }
+                                </select>
+                           
+
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="detail-box pr-md-2" style="color:white; margin-bottom:15px ">
+                    <button type="submit" id="clear" class="hero_btn" style="width:20%;padding:0.6%; background-color:darkcyan ;position:center; margin: 0 auto;display: flex;align-items: center;justify-content: center;">
+                        Clear
+                    </button>
+                </div>
+                <div class="detail-box pr-md-2" style="color:white;">
+                    <button type="submit" id="SearchId" class="hero_btn" style="width:20%;padding:0.6%; background-color:darkcyan ;position:center; margin: 0 auto;display: flex;align-items: center;justify-content: center;">
+                        Search
+                    </button>
+                </div>
+                
+            </div>
+        </div>
+        <!--End Search Area-->
+        <div class="row" id="partialViewContainer" >
+                    @foreach (var contact in Model.Contacts)
+                    {
+                        <div class="col-md-4 col-sm-6 mx-auto" >
+                            <div class="box">
+                                <div class="img-box">
+                                    <img src="~/css/images/p1.png" alt="">
+                                </div>
+                                <div class="detail-box">
+                                    <h5>
+                                        @contact.Name
+                                    </h5>
+                                    <h5>
+                                        @contact.Service
+                                    </h5>
+                                    <h6 class="">
+                                        @contact.message
+                                    </h6>                                  
+                                    <div class="about_section container-fluid">
+                                        <form action="deleteTask" method="post">
+                                            <input type="hidden" name="Id" value="@contact.Id" />
+                                            <div class="detail-box pr-md-2" style="color:white ">
+                                                <button href="" class="hero_btn" style="width:70%; height:40px ; background-color:darkcyan ">
+                                                    Delete
+                                                </button>
+                                            </div>
+                                        </form>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                 }
+        </div>
+        <div class="detail-box pr-md-2" style="color:white;margin-top:5% ">
+            <button id="loadDataButton" class="hero_btn" style="width:20%;padding:0.6%; background-color:darkcyan ;position:center; margin: 0 auto;display: flex;align-items: center;justify-content: center;">
+                View More
+            </button>
+        </div>
+    </div>
+</section>
+    

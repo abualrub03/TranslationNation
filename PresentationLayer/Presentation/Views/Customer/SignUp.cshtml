@@ -1,0 +1,465 @@
+﻿
+@{
+    ViewData["Title"] = "SignUp";
+    Layout = "~/Views/Shared/CustomerLayout.cshtml";
+}
+<div class="login_box_main_wrapper custom-height" id="login_height" style="height: 956px;">
+    <div class="container">
+        <div class="login-logo gap-top">
+            <a href="index.html">
+                <img src="/images/index1-logo.png" alt="logo" style="max-width: 15vh;">
+            </a>
+        </div>
+        <div class="form-tabs" style="
+    direction: rtl;
+">
+            <ul class="nav nav-pills mb-3" id="pills-tab" role="tablist">
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link active" id="pills-home-tab" data-bs-toggle="pill" data-bs-target="#pills-home" type="button" role="tab" aria-controls="pills-home" aria-selected="true">عميل</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-freelauncer-tab" data-bs-toggle="pill" data-bs-target="#pills-freelauncer" type="button" role="tab" aria-controls="pills-freelauncer" aria-selected="false">مترجم</button>
+                </li>
+                <li class="nav-item" role="presentation">
+                    <button class="nav-link" id="pills-profile-tab" data-bs-toggle="pill" data-bs-target="#pills-profile" type="button" role="tab" aria-controls="pills-profile" aria-selected="false">مشرف جامعي</button>
+                </li>
+            </ul>
+        </div>
+        <div class="tab-content" id="pills-tabContent">
+            <div class="tab-pane fade active show" id="pills-home" role="tabpanel" aria-labelledby="pills-home-tab">
+
+                <div class="signin-wrapper">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="left-side">
+                                <h4 style="
+    text-align: center;
+">
+                                    انشاء حساب كعميل
+                                </h4>
+                                <form>
+                                    <div class="form-group field-icon row mb-3">
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="الاسم الرباعي">
+                                            <span><i class="fa fa-user" aria-hidden="true" style="margin-top: 0.5vh;"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group field-icon row mb-3">
+                                        <div class="col-md-12">
+                                            <input type="email" placeholder="البريد الالكتروني">
+                                            <span><i class="fa fa-envelope" aria-hidden="true" style="margin-top: 0.5vh;"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group field-icon row mb-3">
+                                        <div class="col-md-12">
+                                            <input type="date">
+                                            <span>
+                                                <i class="fa fa-user" aria-hidden="true" style="
+    margin-top: 0.5vh;
+"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group field-icon row mb-3">
+                                        <div class="col-md-12">
+                                            <input type="password" placeholder="ادخل كلمة السر">
+                                            <span>
+                                                <i class="fa fa-unlock-alt" aria-hidden="true" style="
+    margin-top: 0.5vh;
+"></i>
+                                            </span>
+                                        </div>
+                                    </div><div class="form-group field-icon row mb-3">
+                                        <div class="col-md-12">
+                                            <input type="password" placeholder="اعد ادخال كلمة السر">
+                                            <span>
+                                                <i class="fa fa-unlock-alt" aria-hidden="true" style="
+    margin-top: 0.5vh;
+"></i>
+                                            </span>
+                                        </div>
+                                    </div><div class="cond" style="
+    text-align: center;
+">
+
+                                        <label for="box1">الموافقة على الشروط و الاحكام</label>
+                                        <input type="checkbox" id="box1" name="box1" value="box1" style="
+    margin: 0 auto;
+">
+                                    </div>
+
+
+                                    <div class="login-btn-sec" style="">
+                                        <a class="sub-btn" href="javascript:;" style="
+    margin-left: 5vh;
+"><span>انشئ الحساب</span></a>
+                                        <div class="social-btn" style="
+">
+                                            <span>- او -</span>
+                                            <ul>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <span>
+                                                            <svg viewBox="0 0 25 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin-top: 1vh;">
+                                                                <g id="Page-21" stroke="none">
+                                                                    <g id="Social-Icons---Isolated1" transform="translate(-176.000000, -55.000000)">
+                                                                        <path d="M200.78439,55.3395122 L200.78439,62.9141463 L196.28878,62.9258537 C192.764878,62.9258537 192.085854,64.6 192.085854,67.0468293 L192.085854,72.4673171 L200.48,72.4673171 L199.39122,80.9434146 L192.085854,80.9434146 L192.085854,103 L183.329951,103 L183.329951,80.9434146 L176,80.9434146 L176,72.4673171 L183.329951,72.4673171 L183.329951,66.2156098 C183.329951,58.9570732 187.754146,55 194.24,55 C197.331902,55 200,55.2341463 200.78439,55.3395122 Z" id="Facebook4"></path>
+                                                                    </g>
+                                                                </g>
+                                                            </svg>
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <span>
+                                                            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;margin-top: 1vh;" xml:space="preserve">
+                                                            <path d="M512,97.248c-19.04,8.352-39.328,13.888-60.48,16.576c21.76-12.992,38.368-33.408,46.176-58.016
+                                                   c-20.288,12.096-42.688,20.64-66.56,25.408C411.872,60.704,384.416,48,354.464,48c-58.112,0-104.896,47.168-104.896,104.992
+                                                   c0,8.32,0.704,16.32,2.432,23.936c-87.264-4.256-164.48-46.08-216.352-109.792c-9.056,15.712-14.368,33.696-14.368,53.056
+                                                   c0,36.352,18.72,68.576,46.624,87.232c-16.864-0.32-33.408-5.216-47.424-12.928c0,0.32,0,0.736,0,1.152
+                                                   c0,51.008,36.384,93.376,84.096,103.136c-8.544,2.336-17.856,3.456-27.52,3.456c-6.72,0-13.504-0.384-19.872-1.792
+                                                   c13.6,41.568,52.192,72.128,98.08,73.12c-35.712,27.936-81.056,44.768-130.144,44.768c-8.608,0-16.864-0.384-25.12-1.44
+                                                   C46.496,446.88,101.6,464,161.024,464c193.152,0,298.752-160,298.752-298.688c0-4.64-0.16-9.12-0.384-13.568
+                                                   C480.224,136.96,497.728,118.496,512,97.248z"></path>
+                                             </svg>
+                                                        </span>
+                                                    </a>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                        <p style="
+    text-align: center;
+">اذا كنت تملك حسابا<a href="login.html" style="margin-right: 1vh;">سجل دخول الان</a></p>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-12" style="
+    margin-top: 9vh;
+">
+                            <div class="login-img">
+                                <img src="/images/login-side.png" alt="img" style="
+    /* margin-top: 5vh; */
+">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="tab-pane fade" id="pills-freelauncer" role="tabpanel" aria-labelledby="pills-freelauncer-tab">
+
+                <div class="signin-wrapper">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="left-side">
+                                <h4 style="
+    text-align: center;
+">
+                                    انشاء حساب كمترجم
+                                </h4>
+                                <form>
+                                    <div class="form-group field-icon row mb-3">
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="الاسم الرباعي">
+                                            <span><i class="fa fa-user" aria-hidden="true" style="margin-top: 0.5vh;"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group field-icon row mb-3">
+                                        <div class="col-md-12">
+                                            <input type="email" placeholder="البريد الالكتروني">
+                                            <span><i class="fa fa-envelope" aria-hidden="true" style="margin-top: 0.5vh;"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group field-icon row mb-3">
+                                        <div class="col-md-12">
+                                            <input type="date">
+                                            <span>
+                                                <i class="fa fa-user" aria-hidden="true" style="
+    margin-top: 0.5vh;
+"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <div class="form-group field-icon row mb-3">
+                                        <div class="col-md-12">
+                                            <input type="password" placeholder="ادخل كلمة السر">
+                                            <span>
+                                                <i class="fa fa-unlock-alt" aria-hidden="true" style="
+    margin-top: 0.5vh;
+"></i>
+                                            </span>
+                                        </div>
+                                    </div><div class="form-group field-icon row mb-3">
+                                        <div class="col-md-12">
+                                            <input type="password" placeholder="اعد ادخال كلمة السر">
+                                            <span>
+                                                <i class="fa fa-unlock-alt" aria-hidden="true" style="
+    margin-top: 0.5vh;
+"></i>
+                                            </span>
+                                        </div>
+                                    </div><div class="cond" style="
+    text-align: center;
+">
+
+                                        <label for="box1">الموافقة على الشروط و الاحكام</label>
+                                        <input type="checkbox" id="box1" name="box1" value="box1" style="
+    margin: 0 auto;
+">
+                                    </div>
+
+
+                                    <div class="login-btn-sec" style="">
+                                        <a class="sub-btn" href="javascript:;" style="
+    margin-left: 5vh;
+"><span>انشئ الحساب</span></a>
+                                        <div class="social-btn" style="
+">
+                                            <span>- او -</span>
+                                            <ul>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <span>
+                                                            <svg viewBox="0 0 25 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin-top: 1vh;">
+                                                                <g id="Page-21" stroke="none">
+                                                                    <g id="Social-Icons---Isolated1" transform="translate(-176.000000, -55.000000)">
+                                                                        <path d="M200.78439,55.3395122 L200.78439,62.9141463 L196.28878,62.9258537 C192.764878,62.9258537 192.085854,64.6 192.085854,67.0468293 L192.085854,72.4673171 L200.48,72.4673171 L199.39122,80.9434146 L192.085854,80.9434146 L192.085854,103 L183.329951,103 L183.329951,80.9434146 L176,80.9434146 L176,72.4673171 L183.329951,72.4673171 L183.329951,66.2156098 C183.329951,58.9570732 187.754146,55 194.24,55 C197.331902,55 200,55.2341463 200.78439,55.3395122 Z" id="Facebook4"></path>
+                                                                    </g>
+                                                                </g>
+                                                            </svg>
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <span>
+                                                            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;margin-top: 1vh;" xml:space="preserve">
+                                                            <path d="M512,97.248c-19.04,8.352-39.328,13.888-60.48,16.576c21.76-12.992,38.368-33.408,46.176-58.016
+                                                   c-20.288,12.096-42.688,20.64-66.56,25.408C411.872,60.704,384.416,48,354.464,48c-58.112,0-104.896,47.168-104.896,104.992
+                                                   c0,8.32,0.704,16.32,2.432,23.936c-87.264-4.256-164.48-46.08-216.352-109.792c-9.056,15.712-14.368,33.696-14.368,53.056
+                                                   c0,36.352,18.72,68.576,46.624,87.232c-16.864-0.32-33.408-5.216-47.424-12.928c0,0.32,0,0.736,0,1.152
+                                                   c0,51.008,36.384,93.376,84.096,103.136c-8.544,2.336-17.856,3.456-27.52,3.456c-6.72,0-13.504-0.384-19.872-1.792
+                                                   c13.6,41.568,52.192,72.128,98.08,73.12c-35.712,27.936-81.056,44.768-130.144,44.768c-8.608,0-16.864-0.384-25.12-1.44
+                                                   C46.496,446.88,101.6,464,161.024,464c193.152,0,298.752-160,298.752-298.688c0-4.64-0.16-9.12-0.384-13.568
+                                                   C480.224,136.96,497.728,118.496,512,97.248z"></path>
+                                             </svg>
+                                                        </span>
+                                                    </a>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                        <p style="
+    text-align: center;
+">اذا كنت تملك حسابا<a href="login.html" style="margin-right: 1vh;">سجل دخول الان</a></p>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-12" style="
+    margin-top: 9vh;
+">
+                            <div class="login-img">
+                                <img src="/images/login-side.png" alt="img" style="
+    /* margin-top: 5vh; */
+">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+            <div class="tab-pane fade" id="pills-profile" role="tabpanel" aria-labelledby="pills-profile-tab">
+
+                <div class="signin-wrapper">
+                    <div class="row">
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="left-side" style="
+">
+                                <h4 style="text-align: -webkit-center;">الانضمام كمشرف حرم جامعي</h4>
+                                <form>
+                                    <div class="form-group field-icon row mb-3">
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="الاسم االرباعي">
+                                            <span>
+                                                <i class="fa fa-user" aria-hidden="true" style="
+    margin-top: 0.5vh;
+"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group field-icon row mb-3">
+                                        <div class="col-md-12">
+                                            <input type="email" placeholder="البريد الالكتروني">
+                                            <span>
+                                                <i class="fa fa-envelope" aria-hidden="true" style="
+    margin-top: 0.5vh;
+"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group field-icon row mb-3">
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="الموقع">
+                                            <span>
+                                                <i class="fa fa-map-marker" aria-hidden="true" style="
+    margin-top: 0.5vh;
+"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group field-icon row mb-3">
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="رقم الهاتف">
+                                            <span>
+                                                <i class="fa fa-phone" aria-hidden="true" style="
+    margin-top: 0.5vh;
+"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+
+                                    <!--  -->
+
+                                    <div class="form-group dekstop-hidden field-icon row mb-3">
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="Username">
+                                            <span><i class="fa fa-user" aria-hidden="true"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group dekstop-hidden field-icon row mb-3">
+                                        <div class="col-md-12">
+                                            <input type="email" placeholder="Category">
+                                            <span><i class="fa fa-globe" aria-hidden="true"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group dekstop-hidden field-icon row mb-3">
+                                        <div class="col-md-12">
+                                            <input type="password" placeholder="Password">
+                                            <span><i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group dekstop-hidden field-icon row mb-3">
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="Re-type Password">
+                                            <span><i class="fa fa-unlock-alt" aria-hidden="true"></i></span>
+                                        </div>
+                                    </div>
+
+                                    <div class="cond" style="
+    text-align: center;
+">
+
+                                        <label for="box1">الموافقة على الشروط و الاحكام</label>
+                                        <input type="checkbox" id="box1" name="box1" value="box1" style="
+    margin: 0 auto;
+">
+                                    </div>
+
+
+                                    <div class="login-btn-sec" style="">
+                                        <a class="sub-btn" href="javascript:;" style="
+    margin-left: 5vh;
+"><span>انشئ الحساب</span></a>
+                                        <div class="social-btn" style="
+">
+                                            <span>- او -</span>
+                                            <ul>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <span>
+                                                            <svg viewBox="0 0 25 48" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" style="margin-top: 1vh;">
+                                                                <g id="Page-21" stroke="none">
+                                                                    <g id="Social-Icons---Isolated1" transform="translate(-176.000000, -55.000000)">
+                                                                        <path d="M200.78439,55.3395122 L200.78439,62.9141463 L196.28878,62.9258537 C192.764878,62.9258537 192.085854,64.6 192.085854,67.0468293 L192.085854,72.4673171 L200.48,72.4673171 L199.39122,80.9434146 L192.085854,80.9434146 L192.085854,103 L183.329951,103 L183.329951,80.9434146 L176,80.9434146 L176,72.4673171 L183.329951,72.4673171 L183.329951,66.2156098 C183.329951,58.9570732 187.754146,55 194.24,55 C197.331902,55 200,55.2341463 200.78439,55.3395122 Z" id="Facebook4"></path>
+                                                                    </g>
+                                                                </g>
+                                                            </svg>
+                                                        </span>
+                                                    </a>
+                                                </li>
+                                                <li>
+                                                    <a href="javascript:;">
+                                                        <span>
+                                                            <svg version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px" viewBox="0 0 512 512" style="enable-background:new 0 0 512 512;margin-top: 1vh;" xml:space="preserve">
+                                                            <path d="M512,97.248c-19.04,8.352-39.328,13.888-60.48,16.576c21.76-12.992,38.368-33.408,46.176-58.016
+                                                   c-20.288,12.096-42.688,20.64-66.56,25.408C411.872,60.704,384.416,48,354.464,48c-58.112,0-104.896,47.168-104.896,104.992
+                                                   c0,8.32,0.704,16.32,2.432,23.936c-87.264-4.256-164.48-46.08-216.352-109.792c-9.056,15.712-14.368,33.696-14.368,53.056
+                                                   c0,36.352,18.72,68.576,46.624,87.232c-16.864-0.32-33.408-5.216-47.424-12.928c0,0.32,0,0.736,0,1.152
+                                                   c0,51.008,36.384,93.376,84.096,103.136c-8.544,2.336-17.856,3.456-27.52,3.456c-6.72,0-13.504-0.384-19.872-1.792
+                                                   c13.6,41.568,52.192,72.128,98.08,73.12c-35.712,27.936-81.056,44.768-130.144,44.768c-8.608,0-16.864-0.384-25.12-1.44
+                                                   C46.496,446.88,101.6,464,161.024,464c193.152,0,298.752-160,298.752-298.688c0-4.64-0.16-9.12-0.384-13.568
+                                                   C480.224,136.96,497.728,118.496,512,97.248z"></path>
+                                             </svg>
+                                                        </span>
+                                                    </a>
+                                                </li>
+
+                                            </ul>
+                                        </div>
+                                        <p style="
+    text-align: center;
+">اذا كنت تملك حسابا<a href="login.html" style="margin-right: 1vh;">سجل دخول الان</a></p>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                        <div class="col-lg-6 col-md-6 col-12">
+                            <div class="right-side">
+                                <form>
+                                    <div class="form-group field-icon row mb-3">
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="اسم المستخدم">
+                                            <span>
+                                                <i class="fa fa-user" aria-hidden="true" style="
+    margin-top: 0.5vh;
+"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group field-icon row mb-3">
+                                        <div class="col-md-12">
+                                            <input type="email" placeholder="الجامعة">
+                                            <span>
+                                                <i class="fa fa-university" aria-hidden="true" style="
+    margin-top: 0.5vh;
+"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group field-icon row mb-3">
+                                        <div class="col-md-12">
+                                            <input type="password" placeholder="كلمة السر">
+                                            <span>
+                                                <i class="fa fa-unlock-alt" aria-hidden="true" style="
+    margin-top: 0.5vh;
+"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                    <div class="form-group field-icon row mb-3">
+                                        <div class="col-md-12">
+                                            <input type="text" placeholder="اعادة كتابة كلمة السر">
+                                            <span>
+                                                <i class="fa fa-unlock-alt" aria-hidden="true" style="
+    margin-top: 0.5vh;
+"></i>
+                                            </span>
+                                        </div>
+                                    </div>
+                                </form>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+    </div>
+</div>

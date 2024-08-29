@@ -1,0 +1,59 @@
+﻿@model List<Entities.Team>
+@{
+    ViewBag.Title = "teamMember";
+    Layout = "~/Views/Shared/AdminLayout.cshtml";
+    Entities.Team team = new Entities.Team();
+    foreach (var tem in Model)
+    {
+        team.Id = tem.Id;
+        team.Name = tem.Name;
+        team.Details = tem.Details;
+    }
+}
+<section class="contact_section " style="margin-top:20px">
+    <div class="container-fluid">
+
+        <div class="row">
+
+            <div class="col-md-5 mx-auto">
+                <div class="form_container">
+                    <div class="heading_container heading_center">
+                        <h2 style="color:black">Adding New Service</h2>
+                    </div>
+                    <form action="updateTeamMember" method="post">
+                        <input type="hidden" name="Id" class="form-control" value="@team.Id" placeholder="Id" required />
+                        <div class="form-row">
+                            <div class="form-group col">
+                                <input type="text" name="Name" class="form-control" value="@team.Name" placeholder="Service Name" required />
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col">
+                                <input type="text" name="Details" value="@team.Details" class="message-box form-control" placeholder="Details" required />
+                            </div>
+                        </div>
+                        <div class="btn_box">
+                            <button>
+                                Update Team Member
+                            </button>
+                        </div>
+                    </form>
+
+
+
+
+
+
+
+
+
+
+
+
+
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

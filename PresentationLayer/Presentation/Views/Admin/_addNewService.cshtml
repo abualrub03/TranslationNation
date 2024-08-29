@@ -1,0 +1,38 @@
+﻿@using ViewModel.AdminViewModels;
+@model ViewModel.AdminViewModels.addServiceViewModel
+@{
+    ViewBag.Title = "_addNewService";
+}
+<section class="contact_section " style="margin-top:20px">
+    <div class="container-fluid">
+        <div class="row">
+            <div class="col-md-5 mx-auto">
+                <div class="form_container">
+                    <div class="heading_container heading_center">
+                        <h2 style="color:black">Adding New Service</h2>
+                    </div>
+                    @using (Html.BeginForm("createNewService", "Admin", FormMethod.Post, new { Model = new addServiceViewModel() }))
+                    {
+                        <div class="form-row">
+                            <div class="form-group col">
+                                @Html.TextBoxFor(m => m.Name, new { @class = "form-control", @placeholder = "Service Name" })
+                                @Html.ValidationMessageFor(m => m.Name)
+                            </div>
+                        </div>
+
+                        <div class="form-row">
+                            <div class="form-group col">
+                                @Html.TextAreaFor(m => m.Details, new { @class = "message-box form-control", @placeholder = "Details" })
+                                @Html.ValidationMessageFor(m => m.Details)
+                            </div>
+                        </div>
+
+                        <div class="btn_box">
+                            <button type="submit">Add Service</button>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
