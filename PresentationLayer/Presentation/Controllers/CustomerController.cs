@@ -12,7 +12,7 @@ namespace TranslationNation.Controllers
 {
     public class CustomerController : BaseController
     {
-        // <<< sendContactRequest  
+        // <<< sendContactRequest  11
         [HttpPost]
         public IActionResult sendContactRequest(Entities.Contact con)
         {
