@@ -60,33 +60,6 @@ namespace RacoonProvider
 
         }
         ////////////////////////////////////////////////////////////////////
-        public List<Entities.Contact> spNewSearchIntblContact(string searchString,string filter, int start, int end)
-        {
-            filter = "%" + filter + "%";
-            if (searchString == null)
-            {
-                searchString = "%%";
-            }
-            if (filter == "%null%")
-            {
-                filter = "%%";
-            }
-
-
-            string newStr = '%' + searchString + '%';
-            if(filter == null|| filter == "null")
-            {
-                filter = "%%";
-            }
-            using var DAL2 = new DataAccess.DataAccessLayer();
-            DAL2.Parameters = new List<SqlParameter> {
-                new SqlParameter{ ParameterName = "@searchString", Value =  newStr },
-                new SqlParameter{ ParameterName = "@filterValue", Value =  filter },
-                new SqlParameter{ ParameterName = "@end", Value = end },
-                new SqlParameter{ ParameterName = "@start", Value = start },
-            };
-            return DAL2.ExecuteReader<Entities.Contact>("SearchAndFilter");
-        }
 
         public int spNewCountSearchByName(string searchString,string filter)
         {

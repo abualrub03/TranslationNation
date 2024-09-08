@@ -79,37 +79,13 @@ namespace TranslationNation.Controllers
             new RacoonProvider.Services().UpdateServiceNameAndDetails(ser.Id,ser.Name,ser.Details);
             return Services();
         }
-        [HttpGet]
-        public IActionResult LoadPartialView(String SearchStr, string filter, int Section)
-        {
-            List<Entities.Contact> list = new List<Entities.Contact>();
-            list = new RacoonProvider.Contact().spNewSearchIntblContact(SearchStr, filter, Section, 10);
-            return View("_ViewMore", list);
-        }
+        
         [HttpGet]
         public int CountPage(string SearchStr, string filter)
         {
             return new RacoonProvider.Contact().spNewCountSearchByName(SearchStr, filter);
         }
-        [HttpGet]
-        public IActionResult dashboard()
-        {
-            var v = new ViewMoreViewModel() { };
-            v.Contacts = new Contact().spNewSearchIntblContact("", "%%", 0,10);
-            v.NumberOfItemsSearchedFor = new Contact().spNewCountSearchByName("%%", "%%");
-            v.Services = new RacoonProvider.Services().getAllServices();
-            return View("dashboard", v);
-        }
-        [HttpPost]
-        public IActionResult searchContacts(string SearchString,string Service,int start)
-        {
-            var v = new ViewMoreViewModel();
-            v.Contacts = new Contact().spNewSearchIntblContact(SearchString, Service, start, 10);
-            if(start == 0)
-            {
-                v.NumberOfItemsSearchedFor = new Contact().spNewCountSearchByName(v.Searchstr, v.Filter);
-            }
-            return View("dashboard", v);
-        }        
+        
+              
     }
 }

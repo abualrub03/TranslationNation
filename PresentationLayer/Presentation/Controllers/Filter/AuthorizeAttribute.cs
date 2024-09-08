@@ -23,14 +23,14 @@ namespace TranslationNation.Controllers.Filter
                 // If the user does not have a role claim, redirect them to the login page.
                 if (roleClaim == null)
                 {
-                    context.Result = new RedirectToActionResult("Login", "Customer", null);
+                    context.Result = new RedirectToActionResult("SignIn", "Customer", null);
                     return;
                 }
 
                 // Check if the user is in the required role.
                 if (!IsInRole(roleClaim.Value))
                 {
-                    context.Result = new RedirectToActionResult("Unauthorized", "Account", null);
+                    context.Result = new RedirectToActionResult("signOutFromAuthorized", "Client", null);
                     return;
                 }
             }
@@ -38,7 +38,7 @@ namespace TranslationNation.Controllers.Filter
             // If the user is not logged in, redirect them to the login page.
             else
             {
-                context.Result = new RedirectToActionResult("Login", "Account", null);
+                context.Result = new RedirectToActionResult("SignIn", "Customer", null);
                 return;
             }
 

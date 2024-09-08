@@ -29,4 +29,8 @@
   <ItemGroup>
     <Using Include="AspNetCore.Unobtrusive.Ajax" />
   </ItemGroup>
+  <ItemGroup>
+    <Folder Include="wwwroot\uploads\Documents\" />
+    <Folder Include="wwwroot\uploads\Videos\" />
+  </ItemGroup>
 </Project>

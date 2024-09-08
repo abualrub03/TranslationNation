@@ -7,6 +7,7 @@ using ViewModel.UserViewModels;
 using Microsoft.EntityFrameworkCore;
 using RacoonProvider;
 using ViewModel.AdminViewModels;
+using static System.Runtime.InteropServices.JavaScript.JSType;
 
 namespace TranslationNation.Controllers
 {
@@ -19,13 +20,16 @@ namespace TranslationNation.Controllers
             new RacoonProvider.Contact().newContactRequest(con);
             return contact();
         }
+      
+        
+
         // sendContactRequest >>>
         // <<< newsNewSubscribtion
         [HttpPost]
         public IActionResult newsNewSubscribtion(Entities.News news)
         {
             new RacoonProvider.News().newSubscribtion(news);
-            return index();
+            return Index();
         }
         // newsNewSubscribtion >>>
         // <<< loginValidation First step
@@ -56,10 +60,7 @@ namespace TranslationNation.Controllers
 
 
             var v = new ViewMoreViewModel() { };
-            v.Contacts = new RacoonProvider.Contact().spNewSearchIntblContact("", "%%", 0, 10);
-            v.NumberOfItemsSearchedFor = new RacoonProvider.Contact().spNewCountSearchByName("%%", "%%");
-            v.Services = new RacoonProvider.Services().getAllServices();
-           
+            
 
             return RedirectToAction("dashboard", "Admin", v);
         }
@@ -69,18 +70,25 @@ namespace TranslationNation.Controllers
         {
             return View("login");
         }
-        // login view >>>
-        // <<< index 
-        
-        public IActionResult index()
-        {
-            if (User.FindFirst("CustomerID") != null)
-                return RedirectToAction("dashboard", "Admin");
-            else
+         public ActionResult PrivacyPolicy()
             {
-                
-                return View("index");
+                return View("PrivacyPolicy");
             }
+         public ActionResult ContactUs()
+        {
+            return View("ContactUs");
+        }
+         public ActionResult TermsOfService()
+        {
+            return View("TermsOfService");
+        }
+        // login view >>>
+        
+        [Route("")]
+        [Route("/Customer/Index")]
+        public ActionResult Index()
+        {
+            return View("Index");
         }
         // index >>>
 
@@ -138,6 +146,135 @@ namespace TranslationNation.Controllers
                 HttpContext.Response.Headers.Add("Content-Type", tem.ImageContentType);
                 return File(tem.ImageData, tem.ImageContentType);
             }
+        }
+            
+        ///////////////TRANSLATION
+        
+
+        [HttpPost]
+        public async Task<IActionResult> SignUpRequestAsCustomerAsync(string FullName, string Email, string BirthDate, string Password, string ConfirmPassword, bool AcceptTerms)
+        {
+            if (ModelState.IsValid)
+            {
+
+                var data = new RacoonProvider.TN_DB_Accounts().newSignUpClientRequest(FullName, Email, BirthDate, Password, AcceptTerms);
+                if (data == null)
+                {
+                    ModelState.AddModelError("FormValidation", "Wrong Username or Password");
+                    return View("SignIn");
+                }
+                var claims = new List<Claim>
+                     {
+                         new Claim("AccountId", data.AccountId.ToString() ,ClaimValueTypes.Integer32),
+                         new Claim("EmailAddress", data.EmailAddress,ClaimValueTypes.Email),
+                         new Claim(ClaimTypes.Role, data.TheRole,ClaimValueTypes.String ),
+                         new Claim("FirstName", (data.FirstName),ClaimValueTypes.String ),
+                         new Claim("LastName", (data.LastName),ClaimValueTypes.String )
+                };
+                var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                var principal = new ClaimsPrincipal(identity);
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+            }
+            else
+                return View("SignUp");
+
+            return RedirectToAction("ClientIndex", "Client");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> SignInRequest(string Email, string Password)
+        {                
+
+            if (ModelState.IsValid)
+            {
+                var data = new RacoonProvider.TN_DB_Accounts().newSignInRequest(Email, Password);
+                if (data == null)
+                {
+                    ModelState.AddModelError("FormValidation", "Wrong Username or Password");
+                    return View("SignIn");
+                }
+                var claims = new List<Claim>
+                     {
+                         new Claim("AccountId", data.AccountId.ToString() ,ClaimValueTypes.Integer32),
+                         new Claim("EmailAddress", data.EmailAddress,ClaimValueTypes.Email),
+                         new Claim(ClaimTypes.Role, data.TheRole,ClaimValueTypes.String ),
+                         new Claim("FirstName", (data.FirstName),ClaimValueTypes.String ),
+                         new Claim("LastName", (data.LastName),ClaimValueTypes.String )
+                };
+                var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                var principal = new ClaimsPrincipal(identity);
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+            }
+            else
+                return View("SignIn");
+                
+            return RedirectToAction("ClientIndex", "Client");
+        }
+
+
+
+
+        [HttpPost]
+        public async Task<IActionResult> SignUpRequestAsTranslatorAsync(string FullName, string Email, string BirthDate, string Password, string ConfirmPassword, bool AcceptTerms)
+        {
+            
+            if (ModelState.IsValid)
+            {
+
+                var data = new RacoonProvider.TN_DB_Accounts().newSignUpTranslatorRequest(FullName, Email, BirthDate, Password, AcceptTerms);
+                if (data == null)
+                {
+                    ModelState.AddModelError("FormValidation", "Wrong Username or Password");
+                    return View("SignIn");
+                }
+                var claims = new List<Claim>
+                     {
+                         new Claim("AccountId", data.AccountId.ToString() ,ClaimValueTypes.Integer32),
+                         new Claim("EmailAddress", data.EmailAddress,ClaimValueTypes.Email),
+                         new Claim(ClaimTypes.Role, data.TheRole,ClaimValueTypes.String ),
+                         new Claim("FirstName", (data.FirstName),ClaimValueTypes.String ),
+                         new Claim("LastName", (data.LastName),ClaimValueTypes.String )
+                };
+                var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                var principal = new ClaimsPrincipal(identity);
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+            }
+            else
+                return View("SignUp");
+
+            return RedirectToAction("ClientIndex", "Client");
+        }
+
+
+
+        [HttpPost]
+        public async Task<IActionResult> SignUpRequestAsSupervisorAsync(string FullName, string Email, string Location, string PhoneNumber, string Username, string University, string Password, string ConfirmPassword, bool AcceptTerms)
+        {
+       
+                // Call the new sign-up request for Supervisor
+                var data = new RacoonProvider.TN_DB_Accounts().newSignUpSupervisorRequest(FullName, Email, Location, PhoneNumber, Username, University, Password, AcceptTerms);
+
+                if (data == null)
+                {
+                    ModelState.AddModelError("FormValidation", "Sign-up failed. Please check your input.");
+                    return View("SignUp");
+                }
+
+                var claims = new List<Claim>
+                     {
+                         new Claim("AccountId", data.AccountId.ToString() ,ClaimValueTypes.Integer32),
+                         new Claim("EmailAddress", data.EmailAddress,ClaimValueTypes.Email),
+                         new Claim(ClaimTypes.Role, data.TheRole,ClaimValueTypes.String ),
+                         new Claim("FirstName", (data.FirstName),ClaimValueTypes.String ),
+                         new Claim("LastName", (data.LastName),ClaimValueTypes.String )
+                };
+
+                var identity = new ClaimsIdentity(claims, CookieAuthenticationDefaults.AuthenticationScheme);
+                var principal = new ClaimsPrincipal(identity);
+                await HttpContext.SignInAsync(CookieAuthenticationDefaults.AuthenticationScheme, principal);
+
+                return RedirectToAction("Dashboard", "Supervisor");
+          
         }
 
     }
